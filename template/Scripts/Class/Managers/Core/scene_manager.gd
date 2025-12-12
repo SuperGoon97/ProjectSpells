@@ -4,11 +4,12 @@ extends ManagerBase
 signal scene_opened()
 signal game_ready()
 
-const DEFAULT_SCENE:PackedScene = preload("res://Scenes/BaseScene/scene_base.tscn")
+const DEFAULT_SCENE:PackedScene = preload("res://Scenes/BaseScene/gym_scene.tscn")
 var current_scene:SceneBase
 
 @onready var primary_canvas_layer_node: CanvasLayer = $PrimaryCanvasLayerNode
 @onready var transition_screen: TransitionScreen = $"Transition layer/transition_screen"
+
 
 func _ready() -> void:
 	GVar.set("scene_manager",self)
