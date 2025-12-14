@@ -12,8 +12,8 @@ gradient = ExtResource("1_6ygi1")
 use_hdr = true
 
 [sub_resource type="Curve" id="Curve_6ygi1"]
-_limits = [0.0, 3000.0, 0.0, 1.0]
-_data = [Vector2(0, 3000), 0.0, 0.0, 0, 0, Vector2(1, 0), -1293.8182, 0.0, 0, 0]
+_limits = [0.0, 1500.0, 0.0, 1.0]
+_data = [Vector2(0, 1500), 0.0, 0.0, 0, 0, Vector2(1, 0), -1293.8182, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_q5iha"]
@@ -31,10 +31,11 @@ curve = SubResource("Curve_ng254")
 [resource]
 lifetime_randomness = 0.5
 particle_flag_align_y = true
-angle_min = -179.99998
-angle_max = 180.00002
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
 direction = Vector3(0, 1, 0)
 spread = 20.0
+flatness = 0.1
 initial_velocity_min = 1.0
 initial_velocity_max = 1.25
 radial_velocity_min = -2.2351742e-05
