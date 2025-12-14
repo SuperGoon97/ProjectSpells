@@ -52,6 +52,15 @@ background_color = Color(0.53625923, 0.4735239, 0.46453434, 1)
 ambient_light_color = Color(0.6977309, 0.82641405, 0.8697117, 1)
 reflected_light_source = 1
 ssil_enabled = true
+glow_enabled = true
+glow_levels/1 = 0.05
+glow_levels/2 = 0.1
+glow_levels/3 = 0.35
+glow_levels/5 = 0.3
+glow_intensity = 1.0
+glow_strength = 0.5
+glow_blend_mode = 0
+glow_hdr_scale = 1.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tafei"]
 render_priority = 0
@@ -911,23 +920,29 @@ rotation_angle = Vector3(0, -1, 0)
 rotation_speed = 0.25
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Viewport Main/Main Viewport/WorldOrigin/Node3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15420857, 0.2202952, -0.055309027)
-light_color = Color(0.2220834, 0.0368396, 0.16254614, 1)
-light_energy = 2.0036018
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15420857, 0.20481627, -0.055309027)
+light_color = Color(0.99590933, 0, 0.004090667, 1)
+light_energy = 10.009568
 shadow_enabled = true
 shadow_bias = 0.072
-omni_range = 0.40475503
-omni_attenuation = 0.3142652
+omni_range = 0.28371784
+omni_attenuation = -0.048846234
 script = ExtResource("11_p0ovr")
+process_in_editor = true
 light_hot_cold = SubResource("Gradient_p0ovr")
 easing_line = SubResource("Curve_p0ovr")
+default_light_color = Color(1, 0.5775778, 0.39151636, 1)
 range_varience = 0.01
 attenuation_varience = 0.03
 energy_varience = 0.01
 flicker_speed = 0.5
 
 [node name="TorchFlameParticle3D" parent="Viewport Main/Main Viewport/WorldOrigin" instance=ExtResource("12_pswpk")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.23564863, 0.0016234219, -0.4569807)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.23564863, 0.0016234219, -0.4053834)
+
+[node name="Cube2" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2559508, 0.04969781, -0.49521145)
+mesh = SubResource("BoxMesh_gbjtv")
 
 [node name="Secondary Viewport" type="SubViewportContainer" parent="."]
 offset_right = 1920.0

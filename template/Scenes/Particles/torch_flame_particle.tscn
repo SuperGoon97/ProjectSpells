@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://cwda5f4sjnujc" path="res://Scripts/Resources/ParticleMaterials/particle_torch_flame.tres" id="1_00epw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00epw"]
+blend_mode = 1
 vertex_color_use_as_albedo = true
 texture_filter = 0
 texture_repeat = false
@@ -14,7 +15,10 @@ size = Vector2(0.025, 0.025)
 orientation = 2
 
 [node name="TorchFlameParticle3D" type="GPUParticles3D"]
-randomness = 1.0
+amount_ratio = 0.75
+lifetime = 1.25
+speed_scale = 0.5
+explosiveness = 0.25
 transform_align = 1
 process_material = ExtResource("1_00epw")
 draw_pass_1 = SubResource("PlaneMesh_00epw")

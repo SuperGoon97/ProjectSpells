@@ -1,14 +1,27 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://cwda5f4sjnujc"]
+[gd_resource type="ParticleProcessMaterial" load_steps=9 format=3 uid="uid://cwda5f4sjnujc"]
+
+[ext_resource type="Gradient" uid="uid://b3gxx50qqo83x" path="res://Assets/Gradients/flame_lifetime_gradient.tres" id="1_6ygi1"]
+[ext_resource type="Gradient" uid="uid://dqn1k2khhf2a0" path="res://Assets/Gradients/flame_initial_gradient.tres" id="1_q5iha"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q5iha"]
+gradient = ExtResource("1_q5iha")
+use_hdr = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hf0ll"]
+gradient = ExtResource("1_6ygi1")
+use_hdr = true
 
 [sub_resource type="Curve" id="Curve_6ygi1"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_limits = [0.0, 3000.0, 0.0, 1.0]
+_data = [Vector2(0, 3000), 0.0, 0.0, 0, 0, Vector2(1, 0), -1293.8182, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_q5iha"]
+texture_mode = 1
 curve = SubResource("Curve_6ygi1")
 
 [sub_resource type="Curve" id="Curve_ng254"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.24620062, 1), -2.1624813, -2.1624813, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5045593, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_6ygi1"]
@@ -16,17 +29,27 @@ width = 32
 curve = SubResource("Curve_ng254")
 
 [resource]
+lifetime_randomness = 0.5
+particle_flag_align_y = true
+angle_min = -179.99998
+angle_max = 180.00002
 direction = Vector3(0, 1, 0)
 spread = 20.0
 initial_velocity_min = 1.0
-initial_velocity_max = 2.0
+initial_velocity_max = 1.25
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
 gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 0.09999776
 damping_min = 0.1
 damping_max = 0.1
 scale_min = 0.5
 scale_max = 0.75
 scale_curve = SubResource("CurveTexture_6ygi1")
-color = Color(1, 0, 0, 1)
+color = Color(0.31473893, 0.31473893, 0.31473893, 1)
+color_ramp = SubResource("GradientTexture1D_hf0ll")
+color_initial_ramp = SubResource("GradientTexture1D_q5iha")
 emission_curve = SubResource("CurveTexture_q5iha")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = -2.2351742e-08
