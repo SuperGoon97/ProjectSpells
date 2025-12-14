@@ -40,9 +40,7 @@ func _process(delta: float) -> void:
 	light_energy = default_energy + lerp(-energy_varience,energy_varience,clamped_alpha)
 	
 	if light_hot_cold:
-		var sampled_hue:float = light_hot_cold.sample(clamped_alpha).h
-		if sampled_hue == 0.0: sampled_hue = 1.0
-		light_color = default_color.blend(light_hot_cold.sample(clamped_alpha)*1.0)
+		light_color = (light_hot_cold.sample(clamped_alpha)*0.1).blend(default_light_color)
 	
 	if light_alpha > 1.0:
 		direction = -1

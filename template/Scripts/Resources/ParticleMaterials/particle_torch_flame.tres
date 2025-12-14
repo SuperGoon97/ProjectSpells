@@ -21,8 +21,8 @@ texture_mode = 1
 curve = SubResource("Curve_6ygi1")
 
 [sub_resource type="Curve" id="Curve_ng254"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5045593, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0.19848561), 0.0, 0.0, 0, 0, Vector2(0.5045593, 1), 0.0, 0.0, 0, 0, Vector2(0.74772036, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_6ygi1"]
 width = 32
