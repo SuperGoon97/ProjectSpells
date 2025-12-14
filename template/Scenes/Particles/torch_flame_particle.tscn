@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://droxnvqcx5vy4"]
+
+[ext_resource type="Material" uid="uid://cwda5f4sjnujc" path="res://Scripts/Resources/ParticleMaterials/particle_torch_flame.tres" id="1_00epw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00epw"]
+vertex_color_use_as_albedo = true
+texture_filter = 0
+texture_repeat = false
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_00epw"]
+material = SubResource("StandardMaterial3D_00epw")
+size = Vector2(0.025, 0.025)
+orientation = 2
+
+[node name="TorchFlameParticle3D" type="GPUParticles3D"]
+randomness = 1.0
+transform_align = 1
+process_material = ExtResource("1_00epw")
+draw_pass_1 = SubResource("PlaneMesh_00epw")

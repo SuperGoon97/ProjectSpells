@@ -1,3 +1,5 @@
+GPUParticles3D
+GPUParticles2D
 Node3D
 OmniLight3D
 MeshInstance3D
@@ -10,5 +12,3 @@ Node
 Node2D
 Timer
 SubViewport
-SubViewportContainer
-Container
