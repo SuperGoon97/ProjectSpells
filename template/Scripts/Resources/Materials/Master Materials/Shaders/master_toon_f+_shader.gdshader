@@ -40,7 +40,7 @@ void vertex() {
 }
 
 void fragment() {
-	ALBEDO = albedo.rgb * texture(albedo_texture, UV).rgb;
+	ALBEDO *= albedo.rgb * texture(albedo_texture, UV).rgb;
 }
 
 void light() {
@@ -49,11 +49,11 @@ void light() {
 	if (use_attenuation) {
 		attenuation = ATTENUATION;
 	}
-	
+
 	// Diffuse lighting.
 	float NdotL = dot(NORMAL, LIGHT);
-	float diffuse_amount = NdotL + (attenuation - 1.0) + wrap;
-	//float diffuse_amount = NdotL * attenuation + wrap;
+	//float diffuse_amount = NdotL + (attenuation - 1.0) + wrap;
+	float diffuse_amount = NdotL * attenuation + wrap;
 	diffuse_amount *= steepness;
 	float cuts_inv = 1.0f / float(cuts);
 	float diffuse_stepped = clamp(diffuse_amount + mod(1.0f - diffuse_amount, cuts_inv), 0.0f, 1.0f);
@@ -65,7 +65,7 @@ void light() {
 		border = step(diffuse_stepped - corr_border_width, diffuse_amount)
 				 - step(1.0 - corr_border_width, diffuse_amount);
 	}
-	
+
 	// Apply diffuse result to different styles.
 	vec3 diffuse = ALBEDO.rgb * LIGHT_COLOR / PI;
 	if (use_ramp) {
@@ -73,14 +73,14 @@ void light() {
 	} else {
 		diffuse *= diffuse_stepped * (1.0f - border);
 	}
-	
+
 	if (clamp_diffuse_to_max) {
 		// Clamp diffuse to max for multiple light sources.
 		DIFFUSE_LIGHT = max(DIFFUSE_LIGHT, diffuse);
 	} else {
 		DIFFUSE_LIGHT += diffuse;
 	}
-	
+
 	// Specular lighting.
 	if (use_specular) {
 		vec3 H = normalize(LIGHT + VIEW);
@@ -91,7 +91,7 @@ void light() {
 		specular_amount = split_specular(specular_amount);
 		SPECULAR_LIGHT += specular_strength * specular_amount * LIGHT_COLOR;
 	}
-	
+
 	// Simple rim lighting.
 	if (use_rim) {
 		float NdotV = dot(NORMAL, VIEW);

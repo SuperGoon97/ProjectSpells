@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://yv0trygv2sj6"]
+[gd_scene load_steps=22 format=3 uid="uid://yv0trygv2sj6"]
 
 [ext_resource type="Script" uid="uid://c1w13jal8gato" path="res://Scripts/Scene Management/scene_base_multi_viewport.gd" id="1_7v7fq"]
 [ext_resource type="Script" uid="uid://cnp2oeiooqh77" path="res://Scripts/Viewports/world_viewport.gd" id="2_haok2"]
@@ -9,8 +9,10 @@
 [ext_resource type="Script" uid="uid://dcug3eyqlc57d" path="res://Scripts/Basic3D/rotator_3d.gd" id="10_lqpt3"]
 [ext_resource type="Script" uid="uid://bwmv0h8vt8jwr" path="res://test_omni_light.gd" id="11_p0ovr"]
 [ext_resource type="ArrayMesh" uid="uid://otsddbrv24k8" path="res://Assets/Meshes/sm_torch_holder.res" id="11_pswpk"]
+[ext_resource type="ArrayMesh" uid="uid://cxxn27wr60vv7" path="res://Assets/Meshes/sm_rock_1.res" id="12_ass8t"]
 [ext_resource type="ArrayMesh" uid="uid://voo6pk2byqq5" path="res://Assets/Meshes/sm_torch.res" id="12_nff20"]
 [ext_resource type="PackedScene" uid="uid://droxnvqcx5vy4" path="res://Scenes/Particles/torch_flame_particle.tscn" id="12_pswpk"]
+[ext_resource type="Material" uid="uid://dger11q4q71u2" path="res://Assets/Materials/moss_material.tres" id="13_nff20"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4jfj4"]
 render_priority = 0
@@ -171,11 +173,11 @@ skeleton = NodePath("../Cube")
 [node name="OmniLight3D" type="OmniLight3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.0815406, -0.65)
 light_color = Color(1, 0.5775778, 0.39151636, 1)
-light_energy = 9.986767
+light_energy = 9.981502
 shadow_enabled = true
 shadow_bias = 0.072
-omni_range = 1.9222379
-omni_attenuation = -0.023328602
+omni_range = 1.8505553
+omni_attenuation = -0.044833362
 script = ExtResource("11_p0ovr")
 process_in_editor = true
 light_hot_cold = SubResource("Gradient_p0ovr")
@@ -256,3 +258,8 @@ render_target_update_mode = 4
 [node name="SmTorch" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.5, 1.5, -0.66048276)
 mesh = ExtResource("12_nff20")
+
+[node name="SmRock1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -0.99999994, 0.011344397, 0.99993575, -4.9587934e-10, 0.9999356, -0.011344398, -4.370857e-08, -0.63512075, 0, -0.63917613)
+mesh = ExtResource("12_ass8t")
+surface_material_override/0 = ExtResource("13_nff20")
