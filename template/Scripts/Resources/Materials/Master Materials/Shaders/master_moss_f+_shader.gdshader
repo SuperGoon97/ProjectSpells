@@ -1,39 +1,34 @@
 shader_type spatial;
-//render_mode skip_vertex_transform;
 
-uniform sampler2D noise_texture : hint_default_white,filter_nearest,repeat_enable;
+group_uniforms Moss;
+uniform sampler2D moss_noise_texture : hint_default_white,filter_nearest,repeat_enable;
+uniform vec2 moss_texture_offset = vec2(0.0,0.0);
+uniform float moss_texture_UV_scale : hint_range(1.0,10.0,0.1) = 2.0;
 uniform vec3 moss_direction = vec3(0.0,1.0,0.0);
-uniform float moss_wrap : hint_range(0.1, 20.0, 0.1);
+uniform float moss_wrap : hint_range(0.1, 10.0, 0.05) = 1.0;
+uniform float moss_strength: hint_range(1.0,4.0,0.1) = 2.0;
+uniform float moss_termination_value : hint_range (0.0,1.0,0.01) = 0.85;
 uniform vec4 moss_albedo : source_color = vec4(1.0f);
-uniform sampler2D moss_texture : hint_default_white,filter_nearest,repeat_enable;
+group_uniforms;
 
-varying vec3 local_normal;
-varying float dot_prod;
+varying float n_dot_moss_direction;
 
 void vertex() {
-	// Called for every vertex the material is visible on.
-	//NORMAL = normalize(MODEL_NORMAL_MATRIX * NORMAL);
-	//VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX,1.0)).xyz;
-	//NORMAL = normalize(MODEL_MATRIX * vec4(NORMAL,1.0)).xyz;
-	local_normal = NORMAL;
-	dot_prod = dot(NORMAL,normalize(moss_direction));
-
+	n_dot_moss_direction = dot(NORMAL,normalize(moss_direction));
 }
 
 void fragment() {
-	vec3 color = mix(ALBEDO,moss_albedo.rgb,texture(moss_texture,UV).r);
-	float angle = acos(dot_prod);
-	float prod_mult = clamp((angle/PI) * moss_wrap,0.0,1.0);
-	ALBEDO = mix(ALBEDO,color,prod_mult);
-	//ALBEDO = (INV_VIEW_MATRIX * vec4(NORMAL,0.0)).xyz;
-	//vec3 normal = normalize(MODEL_NORMAL_MATRIX*NORMAL);
-	// MaybeClamp
-	//normal *= vec3(1.0,1.0,1.0);
+	float acos_ndot = acos(n_dot_moss_direction);
+	float prod_mult = clamp(acos_ndot/(0.8*PI) * moss_wrap,0.0,1.0);
+	float moss_texture_mask = clamp(pow(texture(moss_noise_texture,(UV + moss_texture_offset)/moss_texture_UV_scale).r,moss_strength),0.0,1.0);
+	vec3 colored_mask = moss_albedo.rgb * moss_texture_mask;
+	colored_mask = mix (vec3(1.0),colored_mask,step(0.15,moss_texture_mask));
+	vec3 color = vec3(1.0);
+	if (prod_mult >= moss_termination_value)
+	{
+		color = mix(vec3(1.0),colored_mask,prod_mult);
+	}
 	
-	//float factor = NORMAL.y * texture(moss_texture,UV).r;
-	//vec3 color = texture(moss_texture,UV).rgb * moss_albedo.rgb;
-	//ALBEDO = mix (color,vec3(1.0,1.0,1.0),factor);
-	
-	// Called for every pixel the material is visible on.
+	ALBEDO = color;
 }
 

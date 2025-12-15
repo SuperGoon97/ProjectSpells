@@ -1,5 +1,6 @@
-res://Assets/Materials
+res://Scripts/Resources/Materials/Master Materials/Shaders
 res://Assets/Meshes
+res://Assets/Materials
 res://
 res://Scenes/Particles
 res://Scripts/Resources/ParticleMaterials

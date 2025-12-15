@@ -1,14 +1,43 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dger11q4q71u2"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dger11q4q71u2"]
 
-[ext_resource type="Shader" uid="uid://24rc1wa2ou4r" path="res://Scripts/Resources/Materials/Master Materials/Shaders/master_moss_f+_shader.gdshader" id="1_b3w7s"]
-[ext_resource type="Texture2D" uid="uid://cmrjy14msbktv" path="res://Assets/Textures/moss_texture.png" id="2_ao242"]
+[ext_resource type="Shader" uid="uid://dod6xgemdgwb3" path="res://Scripts/Resources/Materials/Master Materials/Shaders/master_toon_w_moss_f+_shader.gdshader" id="1_b3w7s"]
+[ext_resource type="Shader" uid="uid://c3utm4uwysvgs" path="res://Scripts/Resources/Materials/Master Materials/Shaders/master_outline_f+_shader.gdshader" id="1_xoipf"]
 [ext_resource type="Texture2D" uid="uid://duolxri3wyirq" path="res://Assets/Textures/moss_noise.png" id="2_xoipf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ao242"]
+render_priority = 0
+shader = ExtResource("1_xoipf")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.4
+shader_parameter/highlight_strength = 0.1
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
 
 [resource]
 render_priority = 0
+next_pass = SubResource("ShaderMaterial_ao242")
 shader = ExtResource("1_b3w7s")
-shader_parameter/noise_texture = ExtResource("2_xoipf")
-shader_parameter/moss_direction = Vector3(0, -1, 0)
-shader_parameter/moss_wrap = 19.70000029355364
-shader_parameter/moss_albedo = Color(0.4834036, 1, 0.40018785, 1)
-shader_parameter/moss_texture = ExtResource("2_ao242")
+shader_parameter/albedo = Color(0.28166252, 0.36323202, 0.42745, 1)
+shader_parameter/clamp_diffuse_to_max = true
+shader_parameter/cuts = 4
+shader_parameter/wrap = 0.050000097374999886
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = false
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+shader_parameter/moss_noise_texture = ExtResource("2_xoipf")
+shader_parameter/moss_texture_offset = Vector2(0, 0)
+shader_parameter/moss_texture_UV_scale = 5.0000000596048
+shader_parameter/moss_direction = Vector3(0.87, -1, 0)
+shader_parameter/moss_wrap = 1.4000000208616799
+shader_parameter/moss_strength = 2.10000001639132
+shader_parameter/moss_termination_value = 0.8499999810008
+shader_parameter/moss_albedo = Color(0.18280286, 0.77181566, 0, 1)
