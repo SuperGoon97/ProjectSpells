@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://yv0trygv2sj6"]
+[gd_scene load_steps=28 format=4 uid="uid://yv0trygv2sj6"]
 
 [ext_resource type="Script" uid="uid://c1w13jal8gato" path="res://Scripts/Scene Management/scene_base_multi_viewport.gd" id="1_7v7fq"]
 [ext_resource type="Script" uid="uid://cnp2oeiooqh77" path="res://Scripts/Viewports/world_viewport.gd" id="2_haok2"]
@@ -14,6 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dgap2kpeiqffs" path="res://Assets/Meshes/sm_rock_1.res" id="12_ass8t"]
 [ext_resource type="ArrayMesh" uid="uid://voo6pk2byqq5" path="res://Assets/Meshes/sm_torch.res" id="12_nff20"]
 [ext_resource type="PackedScene" uid="uid://droxnvqcx5vy4" path="res://Scenes/Particles/torch_flame_particle.tscn" id="12_pswpk"]
+[ext_resource type="ArrayMesh" uid="uid://c3fmhg3qk80td" path="res://Assets/Meshes/sm_wall.res" id="15_igdx6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4jfj4"]
 render_priority = 0
@@ -114,7 +115,7 @@ shader = ExtResource("11_ass8t")
 shader_parameter/albedo = Color(0.28166252, 0.36323202, 0.42745, 1)
 shader_parameter/clamp_diffuse_to_max = true
 shader_parameter/cuts = 4
-shader_parameter/wrap = 0.050000097374999886
+shader_parameter/wrap = 0.05000009737499988
 shader_parameter/steepness = 1.0
 shader_parameter/use_attenuation = true
 shader_parameter/use_specular = false
@@ -205,6 +206,7 @@ environment = SubResource("Environment_haok2")
 
 [node name="Cube" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-4.3711392e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, -4.3711392e-08, 0.5, 1.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
@@ -226,29 +228,31 @@ current = true
 size = 8.158
 
 [node name="TorchFlameParticle3D" parent="Viewport Main/Main Viewport/WorldOrigin" instance=ExtResource("12_pswpk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.85, -0.65)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76507473, 2.8265808, -0.68751335)
 
 [node name="Cube2" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 
 [node name="SmTorchHolder" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.5, 1.5, -1)
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.76507473, 2.4174178, -1.0375134)
 mesh = ExtResource("11_pswpk")
 
 [node name="Cube3" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-4.37114e-08, -8.742278e-08, -1.0000002, 0, -1, 8.74228e-08, -1.0000002, 3.821371e-15, 4.37114e-08, 0.5, 2.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 skeleton = NodePath("../Cube")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.0815406, -0.65)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76507473, 2.9989583, -0.68751335)
 light_color = Color(1, 0.5775778, 0.39151636, 1)
-light_energy = 9.972767
+light_energy = 9.988393
 shadow_enabled = true
 shadow_bias = 0.072
-omni_range = 1.9841913
-omni_attenuation = 1.0227637
+omni_range = 2.170848
+omni_attenuation = 1.0787607
 script = ExtResource("11_p0ovr")
 process_in_editor = true
 light_hot_cold = SubResource("Gradient_p0ovr")
@@ -259,60 +263,73 @@ energy_varience = 0.01
 
 [node name="Cube4" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, 1.5, 1.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 
 [node name="Cube5" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 1.5, 0.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 
 [node name="Cube6" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-4.37114e-08, 0, 1.0000002, 0, 1, 0, -1.0000002, 0, -4.37114e-08, 1.5, 2.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 skeleton = NodePath("../Cube")
 
 [node name="Cube7" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-1.0000002, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1.0000002, 0.50023127, 3.5, -1.5021129)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 skeleton = NodePath("../Cube")
 
 [node name="Cube8" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-4.37114e-08, 0, 1.0000002, 0, 1, 0, -1.0000002, 0, -4.37114e-08, 1.5002313, 3.5, -1.5021129)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 skeleton = NodePath("../Cube")
 
 [node name="Cube9" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-4.3711392e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, -4.3711392e-08, -1.5, 1.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 
 [node name="Cube10" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 
 [node name="Cube11" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-4.37114e-08, -8.742278e-08, -1.0000002, 0, -1, 8.74228e-08, -1.0000002, 3.821371e-15, 4.37114e-08, -1.5, 2.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 skeleton = NodePath("../Cube")
 
 [node name="Cube12" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, -0.5, 1.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 
 [node name="Cube13" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -0.5, 0.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 
 [node name="Cube14" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-4.37114e-08, 0, 1.0000002, 0, 1, 0, -1.0000002, 0, -4.37114e-08, -0.5, 2.5, -1.5)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 skeleton = NodePath("../Cube")
 
 [node name="Cube15" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-1.0000002, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1.0000002, -1.4997687, 3.5, -1.5021129)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 skeleton = NodePath("../Cube")
 
 [node name="Cube16" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-4.37114e-08, 0, 1.0000002, 0, 1, 0, -1.0000002, 0, -4.37114e-08, -0.49976873, 3.5, -1.5021129)
+visible = false
 mesh = SubResource("BoxMesh_gbjtv")
 skeleton = NodePath("../Cube")
 
@@ -320,6 +337,21 @@ skeleton = NodePath("../Cube")
 transform = Transform3D(0.29754874, 0.9100416, 0.28859812, -0.3311286, -0.1851521, 0.9252419, 0.89544326, -0.37086773, 0.246249, 0.7526103, 0.03188078, -0.7278003)
 mesh = SubResource("ArrayMesh_tdna3")
 skeleton = NodePath("../Node3D")
+
+[node name="SmTorch" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.76507473, 2.4174178, -0.69799614)
+mesh = ExtResource("12_nff20")
+skeleton = NodePath("../../../..")
+
+[node name="SmRock2" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
+transform = Transform3D(-4.371139e-08, 0, -0.99999994, 0, 1.0000001, 0, 1, 0, -4.3711385e-08, 0.098362446, -0.06183061, -0.70557415)
+mesh = ExtResource("12_ass8t")
+skeleton = NodePath("../../../..")
+
+[node name="SmWall" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
+transform = Transform3D(3.821371e-15, -8.742278e-08, -2, -2, -8.742278e-08, 0, -8.742278e-08, 2, -8.742278e-08, 0.28905964, 0.007982135, -1.1391054)
+mesh = ExtResource("15_igdx6")
+skeleton = NodePath("../../../..")
 
 [node name="Secondary Viewport" type="SubViewportContainer" parent="."]
 offset_right = 1920.0
@@ -330,11 +362,3 @@ own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 4
-
-[node name="SmTorch" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.5, 1.5, -0.66048276)
-mesh = ExtResource("12_nff20")
-
-[node name="SmRock1" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -0.99999994, 0, 1.0000001, 0, 1, 0, -4.3711385e-08, 0.098362446, -0.06183061, -0.70557415)
-mesh = ExtResource("12_ass8t")
