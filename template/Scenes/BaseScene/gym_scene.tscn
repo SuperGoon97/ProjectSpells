@@ -226,11 +226,11 @@ skeleton = NodePath("../Cube")
 [node name="OmniLight3D" type="OmniLight3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76507473, 2.9989583, -0.68751335)
 light_color = Color(1, 0.5775778, 0.39151636, 1)
-light_energy = 5.0096054
+light_energy = 4.978225
 shadow_enabled = true
 shadow_bias = 0.072
-omni_range = 4.928323
-omni_attenuation = 0.9605882
+omni_range = 4.764762
+omni_attenuation = 0.9115199
 script = ExtResource("11_p0ovr")
 process_in_editor = true
 light_hot_cold = SubResource("Gradient_p0ovr")

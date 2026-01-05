@@ -1,10 +1,11 @@
-[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://lbaa4sg60uyt"]
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://lbaa4sg60uyt"]
 
 [ext_resource type="Shader" uid="uid://c3utm4uwysvgs" path="res://Scripts/Resources/Materials/Master Materials/Shaders/master_outline_f+_shader.gdshader" id="1_23bpd"]
 [ext_resource type="Shader" uid="uid://dnxd40vb1mm5c" path="res://Scripts/Resources/Materials/Master Materials/Shaders/master_toon_f+_shader.gdshader" id="2_svria"]
 [ext_resource type="Texture2D" uid="uid://deflqvhyyh1id" path="res://Assets/Textures/Floor/Floor_Tile_basecolor.png" id="3_23bpd"]
 [ext_resource type="Texture2D" uid="uid://cihy72ro45hd7" path="res://Assets/Textures/Floor/Floor_Tile_ambientocclusion.png" id="4_svria"]
 [ext_resource type="Texture2D" uid="uid://cfwch4gva836t" path="res://Assets/Textures/Floor/Floor_Tile_height.png" id="5_rdxw7"]
+[ext_resource type="Texture2D" uid="uid://d3dfsrb1d4i38" path="res://Assets/Textures/Floor/Floor_Tile_normal.png" id="6_svria"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d2dlf"]
 render_priority = 0
@@ -12,7 +13,7 @@ shader = ExtResource("1_23bpd")
 shader_parameter/shadows_enabled = true
 shader_parameter/highlights_enabled = true
 shader_parameter/shadow_strength = 0.4
-shader_parameter/highlight_strength = 0.1
+shader_parameter/highlight_strength = 0.0499999988824
 shader_parameter/highlight_color = Color(1, 1, 1, 1)
 shader_parameter/shadow_color = Color(0, 0, 0, 1)
 
@@ -23,11 +24,12 @@ shader = ExtResource("2_svria")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/albedo_texture = ExtResource("3_23bpd")
 shader_parameter/clamp_diffuse_to_max = true
-shader_parameter/use_normal_texture = false
+shader_parameter/use_normal_texture = true
+shader_parameter/normal_texture = ExtResource("6_svria")
 shader_parameter/use_ao_texture = true
 shader_parameter/ao_texture = ExtResource("4_svria")
 shader_parameter/cuts = 6
-shader_parameter/wrap = -0.000999905047500027
+shader_parameter/wrap = -0.00099990504750002
 shader_parameter/steepness = 4.000000142499999
 shader_parameter/use_attenuation = true
 shader_parameter/use_height_map = true

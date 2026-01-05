@@ -139,6 +139,10 @@ void fragment() {
 		base_uv = ofs;
 	}
 	ALBEDO = albedo.rgb * texture(albedo_texture, base_uv).rgb;
+	if (use_normal_texture)
+	{
+		NORMAL_MAP = texture(normal_texture,base_uv).rgb;
+	}
 	if (use_ao_texture)
 	{
 		AO = texture(ao_texture,base_uv).r;
@@ -163,7 +167,7 @@ void light() {
 	vec3 light = normalize(LIGHT);
 	vec3 light_dir = -light * tbn;
 	float shadow = GetParallaxShadow(base_uv,light_dir);
-	
+
 	// Calculate borders.
 	float border = 0.0f;
 	if (use_borders) {
