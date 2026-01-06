@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://yv0trygv2sj6"]
+[gd_scene load_steps=29 format=4 uid="uid://yv0trygv2sj6"]
 
 [ext_resource type="Script" uid="uid://c1w13jal8gato" path="res://Scripts/Scene Management/scene_base_multi_viewport.gd" id="1_7v7fq"]
 [ext_resource type="Script" uid="uid://cnp2oeiooqh77" path="res://Scripts/Viewports/world_viewport.gd" id="2_haok2"]
@@ -17,6 +17,7 @@
 [ext_resource type="ArrayMesh" uid="uid://kgxptcacf5g1" path="res://Assets/Meshes/sm_wall_1.res" id="16_gs3ax"]
 [ext_resource type="Material" uid="uid://lbaa4sg60uyt" path="res://Assets/Materials/stone_floor_material.tres" id="16_nyjv2"]
 [ext_resource type="ArrayMesh" uid="uid://crvl5bmxdr2pe" path="res://Assets/Meshes/sm_floor.res" id="17_tdna3"]
+[ext_resource type="PackedScene" uid="uid://bh0xvh8i6pm4d" path="res://text_output_box.tscn" id="18_tdna3"]
 
 [sub_resource type="Environment" id="Environment_haok2"]
 background_mode = 1
@@ -108,7 +109,7 @@ shader_parameter/albedo = Color(0.28166252, 0.36323202, 0.42745, 1)
 shader_parameter/clamp_diffuse_to_max = true
 shader_parameter/cuts = 4
 shader_parameter/wrap = 0.05000009737499988
-shader_parameter/steepness = 1.0
+shader_parameter/steepness = 6.0000002375
 shader_parameter/use_attenuation = true
 shader_parameter/use_specular = false
 shader_parameter/specular_strength = 1.0
@@ -226,11 +227,11 @@ skeleton = NodePath("../Cube")
 [node name="OmniLight3D" type="OmniLight3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76507473, 2.9989583, -0.68751335)
 light_color = Color(1, 0.5775778, 0.39151636, 1)
-light_energy = 4.978225
+light_energy = 5.0034657
 shadow_enabled = true
 shadow_bias = 0.072
-omni_range = 4.764762
-omni_attenuation = 0.9115199
+omni_range = 4.905033
+omni_attenuation = 0.9536013
 script = ExtResource("11_p0ovr")
 process_in_editor = true
 light_hot_cold = SubResource("Gradient_p0ovr")
@@ -313,7 +314,7 @@ mesh = SubResource("BoxMesh_gbjtv")
 skeleton = NodePath("../Cube")
 
 [node name="SmRock1" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(0.29754874, 0.9100416, 0.28859812, -0.3311286, -0.1851521, 0.9252419, 0.89544326, -0.37086773, 0.246249, 0.7526103, 0.03188078, -0.7278003)
+transform = Transform3D(0.29754874, 0.9100416, 0.28859812, -0.3311286, -0.1851521, 0.9252419, 0.89544326, -0.37086773, 0.246249, -1.2429906, 0.03188078, -0.7278003)
 mesh = SubResource("ArrayMesh_tdna3")
 skeleton = NodePath("../Node3D")
 
@@ -323,7 +324,7 @@ mesh = ExtResource("12_nff20")
 skeleton = NodePath("../../../..")
 
 [node name="SmRock2" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-4.371139e-08, 0, -0.99999994, 0, 1.0000001, 0, 1, 0, -4.3711385e-08, 0.098362446, -0.06183061, -0.70557415)
+transform = Transform3D(-4.3711353e-08, 0.0012217303, -0.99999917, 5.340352e-11, 0.99999934, 0.00122173, 1, 0, -4.3711385e-08, -1.669872, 0.09325695, -0.711938)
 mesh = ExtResource("12_ass8t")
 skeleton = NodePath("../../../..")
 
@@ -345,3 +346,9 @@ own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 4
+
+[node name="TextOutputBox" parent="." instance=ExtResource("18_tdna3")]
+offset_left = 814.0
+offset_top = 354.0
+offset_right = 1070.0
+offset_bottom = 610.0

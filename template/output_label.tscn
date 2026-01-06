@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ceuv4jh3lm5du"]
+
+[node name="OutputLabel" type="RichTextLabel"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 55.0
+offset_bottom = 25.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "DEBUG"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

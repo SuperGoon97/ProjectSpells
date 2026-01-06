@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh0xvh8i6pm4d"]
+
+[ext_resource type="Script" uid="uid://dh21a4pdr0dc1" path="res://text_output_box.gd" id="1_f3wak"]
+[ext_resource type="PackedScene" uid="uid://bqfyu3andolqy" path="res://debug_rect.tscn" id="2_0tujc"]
+
+[node name="TextOutputBox" type="Control"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 256.0
+script = ExtResource("1_f3wak")
+
+[node name="DebugRect" parent="." node_paths=PackedStringArray("control_to_outline") instance=ExtResource("2_0tujc")]
+layout_mode = 0
+mouse_filter = 2
+control_to_outline = NodePath("../CropRegion/TextContainer")
+
+[node name="CropRegion" type="Control" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CropRegion"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.30748522, 0.30748522, 0.30748522, 0.5)
+
+[node name="TextScrollBar" type="VSlider" parent="CropRegion"]
+visible = false
+layout_mode = 0
+offset_left = 237.0
+offset_top = 6.0
+offset_right = 253.0
+offset_bottom = 255.0
+
+[node name="TextContainer" type="VBoxContainer" parent="CropRegion"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[connection signal="value_changed" from="CropRegion/TextScrollBar" to="." method="_on_text_scroll_bar_value_changed"]
