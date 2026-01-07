@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ceuv4jh3lm5du"]
+[gd_scene load_steps=2 format=3 uid="uid://ceuv4jh3lm5du"]
+
+[ext_resource type="Script" uid="uid://bx36sbyawp487" path="res://output_label.gd" id="1_4ibyc"]
 
 [node name="OutputLabel" type="RichTextLabel"]
 custom_minimum_size = Vector2(32, 32)
@@ -10,3 +12,4 @@ text = "DEBUG"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+script = ExtResource("1_4ibyc")

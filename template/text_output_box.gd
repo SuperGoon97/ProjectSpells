@@ -2,6 +2,9 @@ class_name TextOutputBox extends Control
 
 const OUTPUT_LABEL = preload("res://output_label.tscn")
 
+## String used by GOut to find this output box
+@export var text_output_string:String = "default"
+
 var dif:float = 0.0
 
 @onready var text_scroll_bar: VSlider = $CropRegion/TextScrollBar
@@ -14,6 +17,7 @@ var dif:float = 0.0
 
 func _ready() -> void:
 	text_container.resized.connect(text_container_resize)
+	GOut.out_dict[text_output_string] = self
 
 func text_container_resize():
 	text_scroll_bar.visible = true
@@ -25,14 +29,9 @@ func text_container_resize():
 		update_text_container_position(text_scroll_bar.value)
 	last = text_container.size.y
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_SPACE:
-			add_line()
-
-func add_line():
-	var new_line:RichTextLabel = OUTPUT_LABEL.instantiate()
-	new_line.text = "TEST"
+func add_line(value:String):
+	var new_line:OutputLabel = OUTPUT_LABEL.instantiate()
+	new_line.output_text = value
 	text_container.add_child(new_line)
 
 func update_text_container_position(value:float):
@@ -42,3 +41,14 @@ func update_text_container_position(value:float):
 func _on_text_scroll_bar_value_changed(value: float) -> void:
 	debug_rect._size_changed()
 	update_text_container_position(value)
+
+func _debug_toggle_text_container_outline(value:int = -1) -> void:
+	match value:
+		-1:
+			debug_rect.visible = !debug_rect.visible
+		0:
+			debug_rect.visible = false
+		1: 
+			debug_rect.visible = true
+		_:
+			print("invalid")

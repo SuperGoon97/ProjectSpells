@@ -25,6 +25,7 @@ GFnc="*res://Scripts/Globals/g_fnc.gd"
 GTwn="*res://Scripts/Globals/g_twn.gd"
 GTxt="*res://Scripts/Globals/g_txt.gd"
 GSound="*res://Scripts/Globals/g_sound.gd"
+GOut="*res://Scripts/Globals/g_out.gd"
 
 [display]
 

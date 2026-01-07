@@ -5,6 +5,7 @@ class_name DebugRect extends ReferenceRect
 func _ready() -> void:
 	if control_to_outline:
 		control_to_outline.resized.connect(_size_changed)
+	_size_changed()
 
 func _size_changed():
 	await get_tree().process_frame

@@ -23,8 +23,8 @@ var current_state : STATES
 func _ready() -> void:
 	create_sub_managers()
 	await all_managers_ready
-	GVar.set("active_game_manager",self)
-	GVar.set("active_signal_bus",signal_bus)
+	GVar.set("game_manager",self)
+	GVar.set("signal_bus",signal_bus)
 	super()
 
 func create_sub_managers():

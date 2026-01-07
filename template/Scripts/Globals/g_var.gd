@@ -73,3 +73,12 @@ var world_origin:WorldOrigin:
 		return world_origin
 	set(value):
 		world_origin = value
+
+var show_timestamps:bool = true:
+	set(value):
+		show_timestamps = value
+		signal_bus.option_change.emit("show_timestamps",show_timestamps)
+
+@onready var time_start = Time.get_unix_time_from_system():
+	get:
+		return time_start
