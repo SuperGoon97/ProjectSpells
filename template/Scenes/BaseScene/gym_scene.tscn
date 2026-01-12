@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://yv0trygv2sj6"]
+[gd_scene load_steps=32 format=4 uid="uid://yv0trygv2sj6"]
 
 [ext_resource type="Script" uid="uid://c1w13jal8gato" path="res://Scripts/Scene Management/scene_base_multi_viewport.gd" id="1_7v7fq"]
 [ext_resource type="Script" uid="uid://cnp2oeiooqh77" path="res://Scripts/Viewports/world_viewport.gd" id="2_haok2"]
@@ -10,13 +10,17 @@
 [ext_resource type="Shader" uid="uid://dod6xgemdgwb3" path="res://Scripts/Resources/Materials/Master Materials/Shaders/master_toon_w_moss_f+_shader.gdshader" id="11_ass8t"]
 [ext_resource type="Texture2D" uid="uid://duolxri3wyirq" path="res://Assets/Textures/moss_noise.png" id="11_nff20"]
 [ext_resource type="Script" uid="uid://bwmv0h8vt8jwr" path="res://test_omni_light.gd" id="11_p0ovr"]
-[ext_resource type="ArrayMesh" uid="uid://otsddbrv24k8" path="res://Assets/Meshes/sm_torch_holder.res" id="11_pswpk"]
 [ext_resource type="ArrayMesh" uid="uid://dgap2kpeiqffs" path="res://Assets/Meshes/sm_rock_1.res" id="12_ass8t"]
-[ext_resource type="ArrayMesh" uid="uid://voo6pk2byqq5" path="res://Assets/Meshes/sm_torch.res" id="12_nff20"]
 [ext_resource type="PackedScene" uid="uid://droxnvqcx5vy4" path="res://Scenes/Particles/torch_flame_particle.tscn" id="12_pswpk"]
 [ext_resource type="ArrayMesh" uid="uid://kgxptcacf5g1" path="res://Assets/Meshes/sm_wall_1.res" id="16_gs3ax"]
 [ext_resource type="Material" uid="uid://lbaa4sg60uyt" path="res://Assets/Materials/stone_floor_material.tres" id="16_nyjv2"]
 [ext_resource type="ArrayMesh" uid="uid://crvl5bmxdr2pe" path="res://Assets/Meshes/sm_floor.res" id="17_tdna3"]
+[ext_resource type="ArrayMesh" uid="uid://c5ivipexcs5re" path="res://Assets/Meshes/sm_chest_closed.res" id="18_tdna3"]
+[ext_resource type="ArrayMesh" uid="uid://boimlx14c641w" path="res://Assets/Meshes/sm_crate_01.res" id="19_4x3nl"]
+[ext_resource type="ArrayMesh" uid="uid://cw75rvvp6ogas" path="res://Assets/Meshes/sm_torch_wall.res" id="19_yo613"]
+[ext_resource type="ArrayMesh" uid="uid://tke14fbr330" path="res://Assets/Meshes/sm_torch_floor.res" id="20_4x3nl"]
+[ext_resource type="ArrayMesh" uid="uid://rml3bmckykgs" path="res://Assets/Meshes/sm_crate_02.res" id="20_kdqm0"]
+[ext_resource type="ArrayMesh" uid="uid://bkhqsle1kua6j" path="res://Assets/Meshes/sm_crate_03.res" id="21_3ssbk"]
 
 [sub_resource type="Environment" id="Environment_haok2"]
 background_mode = 1
@@ -190,7 +194,7 @@ mesh = SubResource("BoxMesh_gbjtv")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(0.7071068, 0.5, -0.5, 0, 0.7071068, 0.70710677, 0.7071068, -0.5, 0.5, 0, 3.000424, 0)
 light_color = Color(0.7019608, 0.8156863, 1, 1)
-light_energy = 0.145
+light_energy = 0.1
 shadow_enabled = true
 directional_shadow_mode = 0
 
@@ -200,22 +204,18 @@ rotation_angle = Vector3(0, 1, 0)
 rotation_speed = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="Viewport Main/Main Viewport/WorldOrigin/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.89955777, 0.4368018, 0, -0.4368018, 0.89955777, 0.7713485, 4.931338, 5.2751374)
+transform = Transform3D(1, 0, 0, 0, 0.89955777, 0.4368018, 0, -0.4368018, 0.89955777, 0.7885183, 5.006255, 5.2751374)
 projection = 1
 current = true
 size = 8.158
 
 [node name="TorchFlameParticle3D" parent="Viewport Main/Main Viewport/WorldOrigin" instance=ExtResource("12_pswpk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76507473, 2.8265808, -0.68751335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76507473, 3.5430233, -0.2137827)
 
 [node name="Cube2" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -1.5)
 visible = false
 mesh = SubResource("BoxMesh_gbjtv")
-
-[node name="SmTorchHolder" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.76507473, 2.4174178, -1.0375134)
-mesh = ExtResource("11_pswpk")
 
 [node name="Cube3" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-4.37114e-08, -8.742278e-08, -1.0000002, 0, -1, 8.74228e-08, -1.0000002, 3.821371e-15, 4.37114e-08, 0.5, 2.5, -1.5)
@@ -224,15 +224,14 @@ mesh = SubResource("BoxMesh_gbjtv")
 skeleton = NodePath("../Cube")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76507473, 2.9989583, -0.68751335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76507473, 4.044757, -0.098085225)
 light_color = Color(1, 0.5775778, 0.39151636, 1)
-light_energy = 4.948801
+light_energy = 5.0
+light_size = 0.05
 shadow_enabled = true
-shadow_bias = 0.072
-omni_range = 4.7250395
-omni_attenuation = 0.89960337
+shadow_reverse_cull_face = true
+shadow_blur = 0.85
 script = ExtResource("11_p0ovr")
-process_in_editor = true
 light_hot_cold = SubResource("Gradient_p0ovr")
 easing_line = SubResource("Curve_p0ovr")
 default_light_color = Color(1, 0.5775778, 0.39151636, 1)
@@ -317,11 +316,6 @@ transform = Transform3D(0.29754874, 0.9100416, 0.28859812, -0.3311286, -0.185152
 mesh = SubResource("ArrayMesh_tdna3")
 skeleton = NodePath("../Node3D")
 
-[node name="SmTorch" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.76507473, 2.4174178, -0.69799614)
-mesh = ExtResource("12_nff20")
-skeleton = NodePath("../../../..")
-
 [node name="SmRock2" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(-4.3711353e-08, 0.0012217303, -0.99999917, 5.340352e-11, 0.99999934, 0.00122173, 1, 0, -4.3711385e-08, -1.669872, 0.09325695, -0.711938)
 mesh = ExtResource("12_ass8t")
@@ -345,3 +339,27 @@ own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 4
+
+[node name="SmChestClosed" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.19629179, 0, 0.63746256, 0, 0.66699994, 0, -0.63746256, 0, 0.19629179, 2.8742733, 0.6950561, 0.5669038)
+mesh = ExtResource("18_tdna3")
+
+[node name="SmTorchWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0.79269314, 2.4956067, -0.99998033)
+mesh = ExtResource("19_yo613")
+
+[node name="SmTorchFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.570974, 3.4024067, -0.35647726)
+mesh = ExtResource("20_4x3nl")
+
+[node name="SmCrate01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.40973613, 0, 0.28655943, 0, 0.5, 0, -0.28655943, 0, 0.40973613, -4.1995573, 0.8133681, 0.42598104)
+mesh = ExtResource("19_4x3nl")
+
+[node name="SmCrate02" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 2.1855694e-08, 2.1855694e-08, 9.553427e-16, -0.5, 0, 0.5, 9.553427e-16, -3.481404, 0.63513064, 0.08747119)
+mesh = ExtResource("20_kdqm0")
+
+[node name="SmCrate03" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.24691781, 0, -0.43477765, 0, 0.5, 0, 0.43477765, 0, -0.24691781, -4.233783, 1.6904876, -0.08034444)
+mesh = ExtResource("21_3ssbk")

@@ -1,0 +1,58 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://2bfgp74pvm11"]
+
+[ext_resource type="Shader" uid="uid://c3utm4uwysvgs" path="res://Scripts/Resources/Materials/Master Materials/Shaders/master_outline_f+_shader.gdshader" id="1_a1s2e"]
+[ext_resource type="Shader" uid="uid://dnxd40vb1mm5c" path="res://Scripts/Resources/Materials/Master Materials/Shaders/master_toon_f+_shader.gdshader" id="2_pr1jd"]
+[ext_resource type="Texture2D" uid="uid://dycik2tenihdo" path="res://Assets/Textures/TorchTextures/TorchWall/Base_color.png" id="3_f5lr5"]
+[ext_resource type="Texture2D" uid="uid://bmvuaptux2quo" path="res://Assets/Textures/TorchTextures/TorchWall/AO.png" id="4_7qbng"]
+[ext_resource type="Texture2D" uid="uid://dww07ymuhgdyy" path="res://Assets/Textures/TorchTextures/TorchWall/Height.png" id="5_q141u"]
+[ext_resource type="Texture2D" uid="uid://bwy0hewgjs1n0" path="res://Assets/Textures/TorchTextures/TorchWall/Normal.png" id="6_erlrs"]
+[ext_resource type="Texture2D" uid="uid://m86w2dp1xwj3" path="res://Assets/Textures/TorchTextures/TorchWall/Metallic.png" id="7_mae5u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jfj4"]
+render_priority = 0
+shader = ExtResource("1_a1s2e")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.4
+shader_parameter/highlight_strength = 0.0
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_4jfj4")
+shader = ExtResource("2_pr1jd")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("3_f5lr5")
+shader_parameter/clamp_diffuse_to_max = true
+shader_parameter/use_normal_texture = false
+shader_parameter/normal_texture = ExtResource("6_erlrs")
+shader_parameter/use_ao_texture = true
+shader_parameter/ao_texture = ExtResource("4_7qbng")
+shader_parameter/cuts = 2
+shader_parameter/wrap = 0.25000010687499996
+shader_parameter/steepness = 1.50000002375
+shader_parameter/use_attenuation = true
+shader_parameter/use_height_map = false
+shader_parameter/height_map = ExtResource("5_q141u")
+shader_parameter/height_map_scale = 1.0
+shader_parameter/height_map_min_layers = 8
+shader_parameter/height_map_max_layers = 32
+shader_parameter/shadow_min_layers = 8
+shader_parameter/shadow_max_layers = 32
+shader_parameter/height_map_flip = Vector2(1, 1)
+shader_parameter/use_self_shadow = true
+shader_parameter/use_specular = false
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/specular_map = ExtResource("7_mae5u")
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+shader_parameter/scaled = false
+shader_parameter/texture_scale = 1.0
+shader_parameter/zy = false
+shader_parameter/yz = false

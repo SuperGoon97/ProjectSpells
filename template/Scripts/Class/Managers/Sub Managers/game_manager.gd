@@ -2,6 +2,7 @@ class_name GameManager
 extends ManagerBase
 
 signal all_managers_ready()
+signal game_ready()
 
 var managers_to_load:Array[GVar.SUB_MANAGERS] = [GVar.SUB_MANAGERS.UI_MANAGER,GVar.SUB_MANAGERS.INPUT_MANAGER,]
 var manager_dict:Dictionary[GVar.SUB_MANAGERS,ManagerBase]
@@ -26,12 +27,14 @@ func _ready() -> void:
 	GVar.set("game_manager",self)
 	GVar.set("signal_bus",signal_bus)
 	super()
+	_game_ready()
 
 func create_sub_managers():
 	for key in managers_to_load:
 		var value = GVar.sub_manager_dict[key]
 		var new_manager:ManagerBase = value.new()
 		new_manager.finished_ready.connect(sub_manager_ready)
+		game_ready.connect(new_manager._game_ready)
 		add_child(new_manager)
 		manager_dict[key] = new_manager
 
@@ -44,6 +47,7 @@ func check_all_managers_ready():
 		all_managers_ready.emit()
 
 func _game_ready():
+	game_ready.emit()
 	pass
 
 func _game_end():

@@ -15,10 +15,7 @@ func _ready() -> void:
 
 func _game_ready():
 	signal_bus = GVar.get("active_signal_bus")
-	signal_bus.roll_requested.connect(ui_main.can_roll)
-	signal_bus.score_changed.connect(ui_main.update_score)
-	signal_bus.score_required_changed.connect(ui_main.update_score_required)
-	pass
+	ui_main._game_ready()
 
 func create_ui_main():
 	ui_main = UI_MAIN.instantiate()
