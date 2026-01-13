@@ -1,6 +1,7 @@
+res://Assets/Themes
+res://Assets/Sprites
 res://Assets/Meshes
 res://
-res://Assets/Themes
 res://Assets/Materials
 res://Scripts/Resources/Materials/Master Materials/Shaders
 res://Scenes/Particles
@@ -8,7 +9,6 @@ res://Scripts/Resources/ParticleMaterials
 res://Assets/Textures
 res://Scenes/Components
 D:/Godot/Template-Project/template/Exports
-res://Assets/Sprites
 res://Assets/Audio
 res://Scripts/Globals
 res://Assets/Audio/AudioFiles

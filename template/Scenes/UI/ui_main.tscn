@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c76m4hlgodjv4"]
+[gd_scene load_steps=4 format=3 uid="uid://c76m4hlgodjv4"]
 
+[ext_resource type="Theme" uid="uid://gpgwwtmtui8i" path="res://Assets/Themes/ui_theme.tres" id="1_b2hoh"]
 [ext_resource type="Script" uid="uid://b33l07rn455xp" path="res://Scripts/UI/Menu/ui_main.gd" id="1_v7lif"]
 [ext_resource type="PackedScene" uid="uid://bh0xvh8i6pm4d" path="res://text_output_box.tscn" id="2_pclsy"]
 
-[node name="UiMain" type="Control"]
+[node name="UiMain" type="Control" node_paths=PackedStringArray("outputbox_array")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_b2hoh")
 script = ExtResource("1_v7lif")
+outputbox_array = [NodePath("TextOutputBoxDebug"), NodePath("TextOutputBoxAllDebug"), NodePath("TextOutputBoxCombat"), NodePath("TextOutputBoxText"), NodePath("TextOutputBoxAll")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -22,9 +25,57 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextOutputBox" parent="." instance=ExtResource("2_pclsy")]
+[node name="TextOutputBoxDebug" parent="." instance=ExtResource("2_pclsy")]
 layout_mode = 0
 offset_top = 823.0
 offset_right = 643.0
 offset_bottom = 1079.0
 text_output_string = "debug"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_top = 781.0
+offset_right = 144.33862
+offset_bottom = 821.0
+selected = 4
+item_count = 5
+popup/item_0/text = "Debug"
+popup/item_0/id = 0
+popup/item_1/text = "AllDebug"
+popup/item_1/id = 1
+popup/item_2/text = "Combat"
+popup/item_2/id = 2
+popup/item_3/text = "Text"
+popup/item_3/id = 3
+popup/item_4/text = "All"
+popup/item_4/id = 4
+
+[node name="TextOutputBoxAllDebug" parent="." instance=ExtResource("2_pclsy")]
+layout_mode = 0
+offset_top = 823.0
+offset_right = 643.0
+offset_bottom = 1079.0
+text_output_string = "all_debug"
+
+[node name="TextOutputBoxCombat" parent="." instance=ExtResource("2_pclsy")]
+layout_mode = 0
+offset_top = 823.0
+offset_right = 643.0
+offset_bottom = 1079.0
+text_output_string = "combat"
+
+[node name="TextOutputBoxText" parent="." instance=ExtResource("2_pclsy")]
+layout_mode = 0
+offset_top = 823.0
+offset_right = 643.0
+offset_bottom = 1079.0
+text_output_string = "text"
+
+[node name="TextOutputBoxAll" parent="." instance=ExtResource("2_pclsy")]
+layout_mode = 0
+offset_top = 823.0
+offset_right = 643.0
+offset_bottom = 1079.0
+text_output_string = "all"
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

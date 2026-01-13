@@ -1,3 +1,5 @@
+StyleBoxTexture
+AtlasTexture
 Theme
 ShaderMaterial
 Shader

@@ -212,17 +212,6 @@ size = 8.158
 [node name="TorchFlameParticle3D" parent="Viewport Main/Main Viewport/WorldOrigin" instance=ExtResource("12_pswpk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76507473, 3.5430233, -0.2137827)
 
-[node name="Cube2" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-
-[node name="Cube3" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-4.37114e-08, -8.742278e-08, -1.0000002, 0, -1, 8.74228e-08, -1.0000002, 3.821371e-15, 4.37114e-08, 0.5, 2.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-skeleton = NodePath("../Cube")
-
 [node name="OmniLight3D" type="OmniLight3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76507473, 4.044757, -0.098085225)
 light_color = Color(1, 0.5775778, 0.39151636, 1)
@@ -238,78 +227,6 @@ default_light_color = Color(1, 0.5775778, 0.39151636, 1)
 range_varience = 0.2
 attenuation_varience = 0.06
 energy_varience = 0.05
-
-[node name="Cube4" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, 1.5, 1.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-
-[node name="Cube5" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 1.5, 0.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-
-[node name="Cube6" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-4.37114e-08, 0, 1.0000002, 0, 1, 0, -1.0000002, 0, -4.37114e-08, 1.5, 2.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-skeleton = NodePath("../Cube")
-
-[node name="Cube7" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-1.0000002, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1.0000002, 0.50023127, 3.5, -1.5021129)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-skeleton = NodePath("../Cube")
-
-[node name="Cube8" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-4.37114e-08, 0, 1.0000002, 0, 1, 0, -1.0000002, 0, -4.37114e-08, 1.5002313, 3.5, -1.5021129)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-skeleton = NodePath("../Cube")
-
-[node name="Cube9" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-4.3711392e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, -4.3711392e-08, -1.5, 1.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-
-[node name="Cube10" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-
-[node name="Cube11" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-4.37114e-08, -8.742278e-08, -1.0000002, 0, -1, 8.74228e-08, -1.0000002, 3.821371e-15, 4.37114e-08, -1.5, 2.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-skeleton = NodePath("../Cube")
-
-[node name="Cube12" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, -0.5, 1.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-
-[node name="Cube13" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -0.5, 0.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-
-[node name="Cube14" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-4.37114e-08, 0, 1.0000002, 0, 1, 0, -1.0000002, 0, -4.37114e-08, -0.5, 2.5, -1.5)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-skeleton = NodePath("../Cube")
-
-[node name="Cube15" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-1.0000002, 0, 8.742279e-08, 0, 1, 0, -8.742279e-08, 0, -1.0000002, -1.4997687, 3.5, -1.5021129)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-skeleton = NodePath("../Cube")
-
-[node name="Cube16" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
-transform = Transform3D(-4.37114e-08, 0, 1.0000002, 0, 1, 0, -1.0000002, 0, -4.37114e-08, -0.49976873, 3.5, -1.5021129)
-visible = false
-mesh = SubResource("BoxMesh_gbjtv")
-skeleton = NodePath("../Cube")
 
 [node name="SmRock1" type="MeshInstance3D" parent="Viewport Main/Main Viewport/WorldOrigin"]
 transform = Transform3D(0.29754874, 0.9100416, 0.28859812, -0.3311286, -0.1851521, 0.9252419, 0.89544326, -0.37086773, 0.246249, -1.2429906, 0.03188078, -0.7278003)
